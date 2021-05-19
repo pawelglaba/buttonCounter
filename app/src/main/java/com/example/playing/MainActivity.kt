@@ -35,11 +35,11 @@ class MainActivity : AppCompatActivity() {
 
         button?.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-              numTimesClicked += 1
+                numTimesClicked += 1
                 textView?.append("\n The button got tapped by ${userInput?.text} $numTimesClicked time")
                 //3
                 if(numTimesClicked !=1){
-                  textView?.append("s")
+                    textView?.append("s")
 
                 }
             }
