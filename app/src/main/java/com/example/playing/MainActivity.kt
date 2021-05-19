@@ -1,5 +1,6 @@
 package com.example.playing
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity() {
     private var userInput: EditText? = null
     private var button: Button? = null
     private var textView: TextView? = null
+    //4
+    private var nextActivityButton: Button? = null
 
     //2
 
@@ -24,12 +27,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         userInput = findViewById<EditText>(R.id.userInput)
         button = findViewById(R.id.button)
         textView = findViewById(R.id.printText)
         //3
         textView?.text = ""
         textView?.movementMethod= ScrollingMovementMethod()
+        //4
+        nextActivityButton = findViewById(R.id.nextButton)
+
+        nextActivityButton?.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                openActivity2();
+            }
+        })
+
+
 
         //2
 
@@ -47,4 +61,10 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    //4
+    private fun openActivity2(){
+        val intent= Intent(this, secondActivity::class.java)
+        startActivity(intent)
+    }
+
 }
